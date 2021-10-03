@@ -1,0 +1,45 @@
+server:
+  port: ${APP_PORT:8080}
+
+spring:
+  application:
+    name: ${APP_NAME:unnamed}
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 510760588@qq.com
+    password: abklclqngncccbdb
+    default-encoding: UTF-8
+    auth: true
+  # RabbitMQ配置:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: zzc123456
+    dirver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      auto-commit: false
+      connection-timeout: 3000
+      validation-timeout: 3000
+      maximum-pool-size: 5
+      minimum-idle: 1
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    ssl: ${REDIS_SSL:false}
+    database: ${REDIS_DATABASE:0}
+    name: ${REDIS_NAME:mymaster}
+
+pebble:
+  suffix:
+  cache: false
+
+#自定义邮件发送者地址
+mail:
+  fromAddr: 510760588@qq.com
